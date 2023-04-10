@@ -10,8 +10,8 @@ import {ethers} from "ethers";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { BrowserRouter, Routes, Route,Link } from "react-router-dom";
-import {Outlet} from "react-router-dom";
+import { Routes, Route,Link } from "react-router-dom";
+
 
 function App() {
 
@@ -23,12 +23,12 @@ function App() {
 
   useEffect(()=>{
     const connectWallet=async()=>{
-      const contractAddress="0x30a3103E82CA8C984C2777D0cc1c52b3fecA01dC";
+      const contractAddress="0x93ECeA3d4BeF3943b323D901D662dbEc764B8aD4";
       const contractAbi=abi.abi;
       try{
         const{ethereum}=window;
         if(ethereum){
-          const accounts=await ethereum.request({method:"eth_requestAccounts",})
+          await ethereum.request({method:"eth_requestAccounts",})
 
         }
         const provider=new ethers.providers.Web3Provider(ethereum);

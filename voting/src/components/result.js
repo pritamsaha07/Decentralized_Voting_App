@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -30,28 +30,55 @@ return(
     </Form>
 <Button variant="dark" type="submit" onClick={loadResult}>Pay 0.0002 ETH TO CHECK THE RESULT</Button>{' '}
 
-   <div>
-      {res.map(home =><tr> <td style={{
+   <div style={{margin:'20px'}}>
+   <tr>
+    <th style={{
+                      backgroundColor: "#88ebe6",
+                      border: "1px solid white",
+                      borderCollapse: "collapse",
+                      padding: "7px",
+                      width: "350px",
+                    }}>Candidate name</th>
+    <th style={{
+                      backgroundColor: "#88ebe6",
+                      border: "1px solid white",
+                      borderCollapse: "collapse",
+                      padding: "7px",
+                      width: "600px",
+                    }}>No of votes</th>
+    <th style={{
+                      backgroundColor: "#88ebe6",
+                      border: "1px solid white",
+                      borderCollapse: "collapse",
+                      padding: "7px",
+                      width: "350px",
+                    }}>Party</th>
+  </tr>
+   {res.map(home =><table>
+    
+      <tr><td style={{
                       backgroundColor: "#96D4D4",
                       border: "1px solid white",
                       borderCollapse: "collapse",
                       padding: "7px",
-                      width: "200px",
+                      width: "350px",
                     }}>{home.name}</td> 
                     <td style={{
                       backgroundColor: "#96D4D4",
                       border: "1px solid white",
                       borderCollapse: "collapse",
                       padding: "7px",
-                      width: "800px",
+                      width: "600px",
                     }}>{home.votecount.toString()}</td> <td style={{
                       backgroundColor: "#96D4D4",
                       border: "1px solid white",
                       borderCollapse: "collapse",
                       padding: "7px",
-                      width: "300px",
-                    }}>{home.party.toString()}</td> </tr>   )}
+                      width: "350px",
+                    }}>{home.party.toString()}</td> </tr>   
       
+    </table>)}
+   
     </div>
 </>
 );

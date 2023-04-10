@@ -1,10 +1,7 @@
-import {ethers} from "ethers";
+
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState,useEffect } from "react";
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
 
 const AddVote=({state})=>{
     const addvote=async()=>{

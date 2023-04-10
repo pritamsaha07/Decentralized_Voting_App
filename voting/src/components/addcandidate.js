@@ -1,11 +1,7 @@
-import {ethers} from "ethers";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState,useEffect } from "react";
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-
+import { useState} from "react";
 const Addcandidate=({state})=>{
     const [result, setresult] = useState([]);
     const {contract}=state;
@@ -55,17 +51,16 @@ const Addcandidate=({state})=>{
 
    <div>
       
-      
-      <div style={{ display:"flex" , justifyContent:"center"}}>
+      <div style={{ display:"flex" , justifyContent:"center", margin:'20px'}}>
             {result.map(Candidate => <td style={{
                       backgroundColor: "#96D4D4",
                       border: "1px solid white",
                       borderCollapse: "collapse",
                       padding: "7px",
                       width: "200px",
-                      border: "5px solid",
+                      
 
-                     }}> user={Candidate}</td>)}
+                     }}>{Candidate}</td>)}
         </div>
      
       </div>
