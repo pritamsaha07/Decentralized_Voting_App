@@ -1,0 +1,55 @@
+/* AddCandidate.css */
+
+/* Add some styles for form elements */
+form {
+    max-width: 300px;
+    margin: auto;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .dark-button {
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    place-content: center;
+    place-self: center;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dark-button:hover {
+    background-color: #555;
+  }
+  
+ 
+  .result-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .result-item {
+    background-color: #96d4d4;
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 10px;
+    width: 200px;
+    margin: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Apply scale-up effect on hover */
+  .result-item:hover {
+    transform: scale(1.1);
+  }
+  

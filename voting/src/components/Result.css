@@ -1,0 +1,52 @@
+
+form {
+    max-width: 300px;
+    margin: auto;
+  }
+  h1{
+    text-align: center;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+
+  .dark-button {
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dark-button:hover {
+    background-color: #555;
+  }
+  
+  
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+  }
+  
+  th, td {
+    background-color: #000707;
+    border: 1px solid white;
+    padding: 7px;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+  }
+  
+  th {
+    width: 33.33%;
+  }
+  
+  
+  

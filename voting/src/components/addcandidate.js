@@ -1,70 +1,71 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState} from "react";
-const Addcandidate=({state})=>{
-    const [result, setresult] = useState([]);
-    const {contract}=state;
-    const addcandidate=async()=>{
-        const name=document.querySelector('#name').value;
-        const party=document.querySelector('#party').value;
-        const qualification=document.querySelector('#qualification').value;
-        const age=document.querySelector('#age').value;
-        const id=document.querySelector('#id').value;
-        console.log(name,party,qualification,age,id);
-        const transaction=await contract.addCandidate(name,party,qualification,age,id);
-        await transaction.wait();
-        console.log("Transaction is done");
+import { useState } from "react";
+import './AddCandidate.css';  
+const AddCandidate = ({ state }) => {
+  const [result, setResult] = useState([]);
+  const { contract } = state;
 
-        try {
-            const result = await contract.showCandidateNames();
-            setresult(result);
-            console.log(result)
-          } catch (error) {
-            console.error(error);
-          }
+  const addCandidate = async () => {
+    const name = document.querySelector('#name').value;
+    const party = document.querySelector('#party').value;
+    const qualification = document.querySelector('#qualification').value;
+    const age = document.querySelector('#age').value;
+    const id = document.querySelector('#id').value;
+    console.log(name, party, qualification, age, id);
+    const transaction = await contract.addCandidate(name, party, qualification, age, id);
+    await transaction.wait();
+    console.log("Transaction is done");
+
+    try {
+      const result = await contract.showCandidateNames();
+      setResult(result);
+      console.log(result);
+    } catch (error) {
+      console.error(error);
     }
-   return<>
-    <div>
-        <h1 style={{fontFamily:"fantasy",}}>Candidate Registration</h1>
+  }
+
+  return (
+    <>
+      <div>
+        <h1 style={{ fontFamily: "fantasy", textAlign:"center" , marginTop:"15px"}}>Candidate Registration</h1>
+      </div>
+      <div>
+        <form>
+          <div className="mb-3">
+            <input id="id" type="text" placeholder="Enter Candidate's ID" style={{ width: "100%", marginTop:"5px" }} />
+          </div>
+          <div className="mb-3">
+            <input id="name" type="text" placeholder="Enter Candidate's name" style={{ width: "100%" }} />
+          </div>
+          <div className="mb-3">
+            <input id="party" type="text" placeholder="Enter Candidate's party name" style={{ width: "100%" }} />
+          </div>
+          <div className="mb-3">
+            <input id="age" type="text" placeholder="Enter Candidate's Age" style={{ width: "100%" }} />
+          </div>
+          <div className="mb-3">
+            <input id="qualification" type="text" placeholder="Enter Candidate's qualification" style={{ width: "100%" }} />
+          </div>
+        </form>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '10vh' }}>
+      <button className="dark-button" onClick={addCandidate}>
+        ADD CANDIDATE DETAILS
+      </button>
     </div>
-   <div>
-   <Form >
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Control id="id" type="id" placeholder="Enter Candidate's ID" />
-    </Form.Group>
-    <Form.Group className="mb-3" controlId="formBasicPassword">
-       <Form.Control  id="name" type="message" placeholder="Enter Candidate's name" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-       <Form.Control  id="party" type="message" placeholder="Enter Candidate's party name" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-       <Form.Control  id="age" type="message" placeholder="Enter Candidate's Age" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-       <Form.Control  id="qualification" type="message" placeholder="Enter Candidate's qualification" />
-      </Form.Group>
-    </Form>
-   </div>
-   <Button variant="dark" type="submit" onClick={addcandidate}>PAY 0.0002 ETH TO ADD CANDIDATE DETAILS</Button>{' '}
+      </div>
+    
 
-   <div>
-      
-      <div style={{ display:"flex" , justifyContent:"center", margin:'20px'}}>
-            {result.map(Candidate => <td style={{
-                      backgroundColor: "#96D4D4",
-                      border: "1px solid white",
-                      borderCollapse: "collapse",
-                      padding: "7px",
-                      width: "200px",
-                      
-
-                     }}>{Candidate}</td>)}
+      <div>
+        <div className="result-container">
+          {result.map(candidate => (
+            <div key={candidate} className="result-item">
+              {candidate}
+            </div>
+          ))}
         </div>
-     
       </div>
     </>
+  );
 }
 
-export default Addcandidate
+export default AddCandidate;

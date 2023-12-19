@@ -56,3 +56,4 @@ Candidate[] resultarray;
         return resultarray;
     }
 }
+
