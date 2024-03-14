@@ -34,7 +34,7 @@ git clone <https://github.com/pritamsaha07/Decentralized_Voting_App>
 ```
 Navigate to the project directory:
 ```bash
-cd decentralized-voting
+cd voting
 ```
 Install dependencies:
 ```bash
